@@ -18,7 +18,7 @@ Your printer will go back to printing where it left off, happily on its way.  Ya
 #4) save_variables.cfg:  This is where all of the variables are going to be stored to keep track of everything that all 3 of the files need in order to make the macros work.  Place this file in your config files directory as well.
 
 **Configuration Changes Needed**  
-There are some changes that will need to be made, in order for everything to work properly when you decide to use the runout.cfg file on our printer to have it installed.  
+There are some changes that will need to be made, in order for everything to work properly when you decide to use the runout.cfg file on your printer to have it installed.  
 
 **CP_MACRO.CFG**  
 add the following lines to the sections that are in brackets[ ].  
@@ -41,3 +41,13 @@ add the following lines to the sections that are in brackets[ ].
 
 **PRINTER.CFG**  
 `[include runout.cfg]`  
+`[include test_macro.cfg]`  ; only put this in, if you're going to be using this file to test out the macro runout sensor  
+`[include test_out_macro.cfg]  ; only put this in, if you're going to be using this file to test out the macro runout sensor`  
+
+**Frequently Asked Questions**  
+***Question 1:***  What happens if the printer calls for a filament change before it completes the filament extrusion countdown  
+***Answer 1:***  The program will detect a filament change.  It will inform you that there is a filament change scheduled, will pause the printer prematurely and cut and retract the filament so that it can be changed out, before the filament change command happens.  
+
+***Question 2:***  What happens when the printer loads the runout filament while there is a pending change of filament scheduled?  
+***Answer 2:***  The program will load your runout filament as usual, then it will detect whether there is an upcoming change to the filament.  It will then retract the new filament and set it up to be called.  It will then extrude the upcoming filament so that it can be ready to print with the filament that didn't run out immediately as you hit the resume button again.  
+
