@@ -51,3 +51,15 @@ add the following lines to the sections that are in brackets[ ].
 ***Question 2:***  What happens when the printer loads the runout filament while there is a pending change of filament scheduled?  
 ***Answer 2:***  The program will load your runout filament as usual, then it will detect whether there is an upcoming change to the filament.  It will then retract the new filament and set it up to be called.  It will then extrude the upcoming filament so that it can be ready to print with the filament that didn't run out immediately as you hit the resume button again.  
 
+***Question 3:***   Where do I change the amount of filament that is extruded when the runout sensor is triggered?  
+***Answer 3:***  You will find it in the macro below.  The default is 800mm.  Simply change the number to the amount of millimeters you want to be extruded before your 3D printer goes into Pause State.  
+`[gcode_macro _TRACK_TARGET_FILAMENT_RUNOUT]`  
+`SAVE_VARIABLE VARIABLE=target_filament_runout VALUE=800`  
+
+***Question 4:***  Where do I change the amount of filament that is loaded when the runout sensor detects me loading filament?
+***Answer 4:***  You will find it in the macro below.  This is done by a series of G1 commands.  E300 shows how much filament to load and the F300 is the speed at which to load it.  You can load up to 300mm per instance.  Simply copy the 4 lines in the macro as many times as you want to load up filament and add it together.  The default I made was 1050mm.  You can change this by adding or removing those 4 lines to your hearts content.
+`[gcode_macro _LOAD_FILAMENT_AFTER_RUNOUT]`  
+`G92 E0        ;  resets extruder position`  
+`G1 E300 F300  ;  load filament 300mm at 300mm/min`  
+`M400          ;  ensures all movements are completed before proceeding`  
+`RESPOND MSG="🔄 300mm of filament loaded 🔄 - ⏳ 750mm remaining to target (1050mm) ⏳"   ;  gives a tally of filament loaded`  
