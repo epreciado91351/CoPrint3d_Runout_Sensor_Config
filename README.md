@@ -9,13 +9,13 @@ Once you have cleared out the filament, and put back the bowden tube into the 8i
 Your printer will go back to printing where it left off, happily on its way.  Yay!
 
 **There are 4 files in this repository:**  
-#1) test_macro.cfg:  This is the macro to test out your runout sensors by simply typing in "_FILAMENT_RUNOUT" into your console command line during a 3D print.  This will simulate your runout sensor activating, so that you can evaluate if it will serve your needs.
+#1) **test_macro.cfg**:  This is the macro to test out your runout sensors by simply typing in "_FILAMENT_RUNOUT" into your console command line during a 3D print.  This will simulate your runout sensor activating, so that you can evaluate if it will serve your needs.
 
-#2) test_out_macro.cfg:  This is the macro to test out what happens when you insert filament into your runout sensor, and it begins to auto-load filament, up to the amount that you want to load.  You also run this macro by typing in "test_out_macro.cfg".  Again, this is a way to simulate your sensor activating, so that you can evaluate if it will serve your needs.
+#2) **test_out_macro.cfg**:  This is the macro to test out what happens when you insert filament into your runout sensor, and it begins to auto-load filament, up to the amount that you want to load.  You also run this macro by typing in "test_out_macro.cfg".  Again, this is a way to simulate your sensor activating, so that you can evaluate if it will serve your needs.
 
-#3) runout.cfg:  This is the file that you will put in your config files directory.  This is what will get called when your runout sensor activates, either when it runs out of filament, or when you insert filament into the runout sensor.  
+#3) **runout.cfg**:  This is the file that you will put in your config files directory.  This is what will get called when your runout sensor activates, either when it runs out of filament, or when you insert filament into the runout sensor.  
 
-#4) save_variables.cfg:  This is where all of the variables are going to be stored to keep track of everything that all 3 of the files need in order to make the macros work.  Place this file in your config files directory as well.
+#4) **save_variables.cfg**:  This is where all of the variables are going to be stored to keep track of everything that all 3 of the files need in order to make the macros work.  Place this file in your config files directory as well.
 
 **Configuration Changes Needed**  
 There are some changes that will need to be made, in order for everything to work properly when you decide to use the runout.cfg file on your printer to have it installed.  
