@@ -57,7 +57,7 @@ add the following lines to the sections that are in brackets[ ].
 `SAVE_VARIABLE VARIABLE=target_filament_runout VALUE=800`  
 
 ***Question 4:***  Where do I change the amount of filament that is loaded when the runout sensor detects me loading filament?  
-***Answer 4:***  You will find it in the macro below.  This is done by a series of G1 commands.  E300 shows how much filament to load and the F300 is the speed at which to load it.  You can load up to 300mm per instance.  Simply copy the 4 lines in the macro as many times as you want to load up filament and add it together.  The default I made was 1050mm.  You can change this by adding or removing those 4 lines to your hearts content.
+***Answer 4:***  You will find it in the macro below.  This is done by a series of G1 commands.  E300 shows how much filament to load and the F300 is the speed at which to load it.  You can load up to 300mm per instance.  Simply copy the 4 lines in the macro as many times as you want to load up filament and add it together.  The default I made was 1050mm.  You can change this by adding or removing those 4 lines to your hearts content.  
 `[gcode_macro _LOAD_FILAMENT_AFTER_RUNOUT]`  
 `G92 E0        ;  resets extruder position`  
 `G1 E300 F300  ;  load filament 300mm at 300mm/min`  
