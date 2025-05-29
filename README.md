@@ -24,20 +24,20 @@ There are some changes that will need to be made, in order for everything to wor
 add the following lines to the sections that are in brackets[ ].  
 `[gcode_macro START_PRINT]`  
 `variable_started_printing: False`  
+`variable_extruder_temperature: 0`  
 `gcode:`  
 `    SAVE_VARIABLE VARIABLE=started_printing VALUE=True  ;  turns off filament runout sensor from auto-loading filament`  
+`    SAVE_VARIABLE VARIABLE=extruder_temperature VALUE={EXTRUDER_TEMP}  ;  records the extruder temperature`  
 
 `[gcode_macro END_PRINT]`    
 `gcode:`  
 `    SAVE_VARIABLE VARIABLE=started_printing VALUE=False   ;  turns off filament runout sensor from auto-loading filament`  
+`    SAVE_VARIABLE VARIABLE=extruder_temperature VALUE=0  ;  records the extruder temperature`  
 
 `[gcode_macro CANCEL_PRINT]`  
 `gcode:`  
 `    SAVE_VARIABLE VARIABLE=started_printing VALUE=False   ;  turns off filament runout sensor from auto-loading filament`  
-
-`[gcode_macro END_PRINT]`  
-`gcode:`  
-`    SAVE_VARIABLE VARIABLE=started_printing VALUE=False   ;  turns off filament runout sensor from auto-loading filament`  
+`    SAVE_VARIABLE VARIABLE=extruder_temperature VALUE=0  ;  records the extruder temperature`  
 
 **PRINTER.CFG**  
 `[include runout.cfg]`  
