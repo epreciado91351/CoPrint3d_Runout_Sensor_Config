@@ -26,8 +26,19 @@ add the following lines to the sections that are in brackets[ ].
 `variable_started_printing: False`  
 `variable_extruder_temperature: 0`  
 `gcode:`  
-`    SAVE_VARIABLE VARIABLE=started_printing VALUE=True  ;  turns off filament runout sensor from auto-loading filament`  
+` ;  THIS SECTION IS THE RUNOUT SENSOR VARIABLES THAT GET RESET STARTING EVERY PRINT`  
 `    SAVE_VARIABLE VARIABLE=extruder_temperature VALUE={EXTRUDER_TEMP}  ;  records the extruder temperature`  
+`    SAVE_VARIABLE VARIABLE=started_printing VALUE=True  ; turns on filament runout sensor for detecting a filament runout`  
+`    SAVE_VARIABLE VARIABLE=printer_paused VALUE=False   ; let's the runout sensor know that it cannot auto-load filament`  
+`    SAVE_VARIABLE VARIABLE=original_filament_extruder value='"null"'  ;   Reset variables`  
+`    SAVE_VARIABLE VARIABLE=current_filament_extruder VALUE='"null"'   ;   Reset variables`  
+`    SAVE_VARIABLE VARIABLE=target_filament_runout VALUE=0`  
+`    SAVE_VARIABLE VARIABLE=start_filament_position VALUE=0`  
+`    SAVE_VARIABLE VARIABLE=dynamic_filament_position VALUE=0`  
+`    SAVE_VARIABLE VARIABLE=extruder_change_during_runout VALUE=False  ;Used in filament loading macros`  
+`    SAVE_VARIABLE VARIABLE=filament_used VALUE=0`  
+`    SAVE_VARIABLE VARIABLE=filament_remaining VALUE=0`  
+` ;       END OF RUNOUT SENSOR VARIABLES`  
 
 `[gcode_macro END_PRINT]`    
 `gcode:`  
