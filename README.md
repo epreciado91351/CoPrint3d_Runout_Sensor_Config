@@ -10,12 +10,12 @@ Your printer will go back to printing where it left off, happily on its way.  Ya
    
 #1) **runout.cfg**:  This is the file that you will put in your config files directory.  This is what will get called when your runout sensor activates, either when it runs out of filament, or when you insert filament into the runout sensor.  
 
-#4) **save_variables.cfg**:  This is where all of the variables are going to be stored to keep track of everything that all 3 of the files need in order to make the macros work.  Place this file in your config files directory as well.
+#2) **save_variables.cfg**:  This is where all of the variables are going to be stored to keep track of everything that all 3 of the files need in order to make the macros work.  Place this file in your config files directory as well.
 
 **Configuration Changes Needed**  
 There are some changes that will need to be made, in order for everything to work properly when you decide to use the runout.cfg file on your printer to have it installed.  
 
-**CP_MACRO.CFG**  
+#3) **CP_MACRO.CFG**  
 add the following lines to the sections that are in brackets[ ].  
 `[gcode_macro START_PRINT]`  
 `variable_started_printing: False`  
@@ -45,10 +45,8 @@ add the following lines to the sections that are in brackets[ ].
 `    SAVE_VARIABLE VARIABLE=started_printing VALUE=False   ;  turns off filament runout sensor from auto-loading filament`  
 `    SAVE_VARIABLE VARIABLE=extruder_temperature VALUE=0  ;  records the extruder temperature`  
 
-**PRINTER.CFG**  
-`[include runout.cfg]`  
-`[include test_macro.cfg]`  ; only put this in, if you're going to be using this file to test out the macro runout sensor  
-`[include test_out_macro.cfg]  ; only put this in, if you're going to be using this file to test out the macro runout sensor`  
+#4) **PRINTER.CFG**  
+`[include runout.cfg]`   
 
 **Frequently Asked Questions**  
 ***Question 1:***  What happens if the printer calls for a filament change before it completes the filament extrusion countdown  
